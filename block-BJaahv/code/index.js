@@ -1,68 +1,85 @@
 // factory pattern
-function student(name, id, noOfProjects) {
-    return `Iam ${name} ,My id Number ${id} and i had completed ${noOfProjects} projects`;
-}
+function createStudent(name, id, noOfProjects) {
+    let user = {};
+    user.name = name;
+    user.id = id;
+    user.noOfProjects = noOfProjects;
 
-function getProjects() {
-    return this.noOfProjects;
+    user.getProjects = function () {
+        return this.noOfProjects;
+    };
+    user.changeName = function (newName) {
+        let preName = user.name;
+        user.name = newName;
+        return preName;
+    };
+    user.incrementProject = function () {
+        user.noOfProjects += 1;
+        return user.noOfProjects;
+    };
+    user.decrementProject = function () {
+        user.noOfProjects -= 1;
+        return user.noOfProjects;
+    };
+    return user;
 }
-function changeName(newName) {
-    return (newName = this.name);
-}
-function incrementProject(Update) {
-    return (Update = this.noOfProjects + Update);
-}
-function decrementProject(Update) {
-    return (Update = this.noOfProjects + Update);
-}
-
 // prototypal pattern
-let studentMethods = {
+let userMethods = {
     getProjects() {
         return this.noOfProjects;
     },
     changeName(newName) {
-        return (newName = student.name);
+        let preName = this.name;
+        this.name = newName;
+        return preName;
     },
-    incrementProject(Update) {
-        return (Update = student.noOfProjects + Update);
+    incrementProject() {
+        this.noOfProjects += 1;
+        return this.noOfProjects;
     },
-    decrementProject(Update) {
-        return (Update = student.noOfProjects + Update);
+    decrementProject() {
+        this.noOfProjects -= 1;
+        return this.noOfProjects;
     },
 };
 
-function students(name, id, noOfProjects) {
-    let student = Object.create(studentMethods);
-    student.name = name;
-    student.id = id;
-    student.noOfProjects = noOfProjects;
-    return student;
+function createStudent(name, id, noOfProjects) {
+    let user = Object.create(userMethods);
+    user.name = name;
+    user.id = id;
+    user.noOfProjects = noOfProjects;
+    return user;
 }
+
 // pseudoclassical pattern
-function students(name, id, noOfProjects) {
+function CreateStudent(name, id, noOfProjects) {
     this.name = name;
     this.id = id;
     this.noOfProjects = noOfProjects;
-}
 
-students.prototype = {
+}
+CreateStudent.prototype = {
     getProjects() {
         return this.noOfProjects;
     },
     changeName(newName) {
-        return (newName = student.name);
+        let preName = this.name;
+        this.name = newName;
+        return preName;
     },
-    incrementProject(Update) {
-        return (Update = student.noOfProjects + Update);
+    incrementProject() {
+        this.noOfProjects += 1;
+        return this.noOfProjects;
     },
-    decrementProject(Update) {
-        return (Update = student.noOfProjects + Update);
+    decrementProject() {
+        this.noOfProjects -= 1;
+        return this.noOfProjects;
     },
 };
-// oraganize using class pattern
-class Students {
-    construtor(name, id, noOfProjects) {
+
+//class organize
+class Student {
+    constructor(name, id, noOfProjects) {
         this.name = name;
         this.id = id;
         this.noOfProjects = noOfProjects;
@@ -71,21 +88,39 @@ class Students {
         return this.noOfProjects;
     }
     changeName(newName) {
-        return (this.name = newName);
+        let preName = this.name;
+        this.name = newName;
+        return preName;
     }
-    incrementProject(Update) {
-        return ( this.noOfProjects + Update);
+    incrementProject() {
+        this.noOfProjects += 1;
+        return this.noOfProjects;
     }
-    decrementProject(Update) {
-        return (this.noOfProjects + Update);
+    decrementProject() {
+        this.noOfProjects -= 1;
+        return this.noOfProjects;
     }
-};
+}
 //  test function
-let user = new Students("Asha", 101, 10);
-let user_1 = new Students("Priya", 104, 5);
-let user_2 = new Students("Geetha", 108, 8);
-console.group(user);
-console.log(user.name);
-console.log(user.id);
-console.log(user.noOfProjects);
-console.groupEnd(user);
+let aman = createStudent("aman", 101, 10);
+let priya = createStudent("priya", 116, 17);
+let miraj = new CreateStudent( "miraj pandey", 114,30);
+let raj = new Student("raj",111,25);
+
+console.group("Aman");
+console.log(aman.name);
+console.log(aman.id);
+console.log(aman.incrementProject());
+console.log(aman.decrementProject());
+console.log(aman.changeName("David"));
+console.log(aman.name);
+console.groupEnd();
+
+console.group("priya");
+console.log(priya.name);
+console.log(priya.id);
+console.log(priya.incrementProject());
+console.log(priya.decrementProject());
+console.log(priya.changeName("David"));
+console.log(priya.name);
+console.groupEnd();
