@@ -31,9 +31,11 @@ let dogMethods = {
         return `I am ${this.name} and I am of ${this.color} color. I can also bark`;
     },
 };
+Object.setPrototypeOf(dogMethods,animalMethods);
 
-function Dog(name, color) {
-    let pet_1 = Object.create(dogMethods);
+function Dog(location, numberOflegs,name, color) {
+    let pet_1 = Animal(location,numberOflegs);
+    Object.setPrototypeOf(pet_1 , dogMethods);
     pet_1.name = name;
     pet_1.color = color;
     
@@ -53,15 +55,15 @@ let catMethods = {
     summary() {
         return `I am ${this.name} and the color of my eyes are ${this.colorOfEyes}. I can also do meow meow  😹`},
 };
+Object.setPrototypeOf(catMethods,animalMethods);
 
-function Cat(name, colorOfEyes) {
-    let pet_2 = Object.create(catMethods);
+function Cat(location,numberOflegs,name, colorOfEyes) {
+    let pet_2 = Animal(location,numberOflegs,);
+    Object.setPrototypeOf(pet_2, catMethods);
     pet_2.name = name;
     pet_2.colorOfEyes = colorOfEyes;
     
     return pet_2;
 }
-Object.setPrototypeOf(animalMethods , dogMethods);
-Object.setPrototypeOf(animalMethods , catMethods);
 
 
