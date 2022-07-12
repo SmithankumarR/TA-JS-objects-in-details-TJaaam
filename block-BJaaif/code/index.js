@@ -155,18 +155,20 @@ function userFactory(name, score) {
   return user;
 }
 
-var adminFunctionStore = {
- sharePublicMessage: function(){
-  console.log( "Welcome users!");
- }
+var adminFunctionStore = Object.create(userFunctionStore);
+{
 };
 
 function adminFactory(name, score) {
-  userFactory.apply(this,[name,score]);
-
+  let user = userFactory(name,score);
+  Object.setPrototypeOf(user,adminFunctionStore)
+  user.type = "Admin";
+  return user;
+  
 }
-
-/* Put code here for a method called sharePublicMessage*/
+adminFunctionStore.sharePublicMessage = function(){
+ console.log( "Welcome users!");
+}
 
 var adminFromFactory = adminFactory('Eva', 5);
 
