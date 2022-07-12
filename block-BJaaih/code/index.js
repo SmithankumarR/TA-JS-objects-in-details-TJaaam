@@ -4,13 +4,36 @@
 */
 
 // myMap function goes here
+function createarrayMethods(){
+  let method = Object.create(createarrayMethods.prototype);
 
+}
+createarrayMethods.prototype = {
+  myMap(item){
+    for(let elm in arr){
+      item = arr[elm];
+    }
+    return item;
+  }
+}
+
+
+// function myMap(){
+//   let test = Object.create(myMap.prototype);
+//   return test;
+// }
+// myMap.prototype = {
+//   testedMap(item){
+//     for(let elm in arr){
+//       item = arr[elm];
+//     }
+//     return item;
+//   }
+// }
 // Test the myMap function you created above
 
 let numbers = [1, 5, 6, 8, 9];
-let words = 'quick brown fox jumped over a lazy dog'.split(
-  ' '
-);
+let words = "quick brown fox jumped over a lazy dog".split(" ");
 let doubleNum = numbers.myMap(function (num) {
   return num * 2 - 1;
 });
@@ -19,7 +42,7 @@ let capitalWords = words
   .myMap(function (word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
   })
-  .join(' ');
+  .join(" ");
 console.log(doubleNum); // it should be [1, 9, 11, 15, 17]
 console.log(capitalWords); // it should be 'Quick Brown Fox Jumped Over A Lazy Dog'
 
@@ -27,8 +50,28 @@ console.log(capitalWords); // it should be 'Quick Brown Fox Jumped Over A Lazy D
 2. Add a method named `myFilter` to Array.prototype. myFilter should behave similar to Array.filter.
 After adding the function test it using the code below.
 */
+function createarrayMethods(){
+  let method = Object.create(createarrayMethods.prototype);
 
-// You code goes here
+}
+createarrayMethods.prototype = {
+  myMap(item){
+    for(let elm in arr){
+      item = arr[elm];
+    }
+    return item;
+  },
+  myFilter(item){
+    for(let elm in arr){
+      if( arr[elm] == true){
+        item = arr[elm]
+      }
+    }
+    return item;
+  }
+
+}
+
 
 let even = numbers.myFilter(function (num) {
   return num % 2 === 0;
@@ -38,7 +81,7 @@ let filteredWords = words
   .myFilter(function (word) {
     return word.length > 3;
   })
-  .join(' ');
+  .join(" ");
 console.log(even); // it should be [6, 8]
 console.log(filteredWords); // it should be 'quick brown jumped over lazy';
 
@@ -48,8 +91,33 @@ new array and in the new array the index of the elements will be shuffled (rando
 Make sure it does not the changes the original array.
 
 */
+function createarrayMethods(){
+  let method = Object.create(createarrayMethods.prototype);
 
-// You code goes here
+}
+createarrayMethods.prototype = {
+  myMap(item){
+    for(let elm in arr){
+      item = arr[elm];
+    }
+    return item;
+  },
+  myFilter(item){
+    for(let elm in arr){
+      if( arr[elm] == true){
+        item = arr[elm]
+      }
+    }
+    return item;
+  },
+  shuffle(...item){
+    for(let elm in arr){
+      item.indexOf(elm).Math.random(indexOf(elm));
+      }
+    return (item);
+  }
+}
+
 
 // Test to check the shuffle method (It will return different output every time you call)
 console.log(numbers.shuffle());
@@ -63,11 +131,42 @@ new array and it should only contain unique elements in the array.
 Unique means no element should come multiple times.
 */
 
-// You code goes here
+function createarrayMethods(){
+  let method = Object.create(createarrayMethods.prototype);
+
+}
+createarrayMethods.prototype = {
+  myMap(item){
+    for(let elm in arr){
+      item = arr[elm];
+    }
+    return item;
+  },
+  myFilter(item){
+    for(let elm in arr){
+      if( arr[elm] == true){
+        item = arr[elm]
+      }
+    }
+    return item;
+  },
+  shuffle(...item){
+    for(let elm in arr){
+      item.indexOf(elm).Math.random(indexOf(elm));
+      }
+    return (item);
+  },
+  unique(...item){
+    for(let elm in arr){
+      
+      }
+    return (item);
+  }
+}
 
 // Test to check the shuffle method (It will return different output every time you call)
 let num = [1, 2, 3, 4, 2, 3, 6, 7, 7];
-let strings = 'helloworld'.split('');
+let strings = "helloworld".split("");
 
 console.log(num.unique()); // [1, 2, 3, 4, 6, 7]
 console.log(strings.unique()); // ['h', 'e', 'l', 'o', 'w', 'r', 'd']
@@ -81,7 +180,7 @@ array that will contain only element that is common in both the array.
 
 // Test to check the shuffle method (It will return different output every time you call)
 console.log(num.intersection([2, 7, 11, 32])); // [2, 7]
-console.log(strings.intersection('heyworld'.split(''))); // ['h', 'e', 'o', 'w', 'r', 'l', 'd']
+console.log(strings.intersection("heyworld".split(""))); // ['h', 'e', 'o', 'w', 'r', 'l', 'd']
 
 /*
 6. Add a method named `chunk` to Array.prototype. The method chunk will accept one parameter `length`
