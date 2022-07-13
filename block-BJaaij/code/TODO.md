@@ -1,7 +1,44 @@
 ## An object-oriented book-list!
 
 - [ ] Create a class BookList
-- [ ] Create another class called Book
+
+```js
+class BookList {
+    constructor(book = [],index){
+        this.book = book;
+    }
+    add([Book]){
+        return this.book.push([Book])
+    }
+    getCurrentBook(){
+        return this.book[index]
+    }
+    getNextBook(){
+        return this.book[index] = index + 1;
+
+
+    }
+    getPrevBook(){
+        return this.book[index] = index - 1;
+
+    }
+    changeCurrentBook(){
+        return index = index + 1;
+    }
+}
+
+// - [ ] Create another class called Book
+class Book {
+    constructor(title,category,author,isRead = false, finishedDate){
+
+    }
+    markBookAsRead(){
+        return (isRead = true , finishedDate = Date.now());
+    }
+
+}
+let harrySerries = new BookList[ "harryStone", "harrybuilt","harryJourney", "harrymagic","harryTrust", "harryFight"];
+```
 
 #### Each Book should have several properties:
 
