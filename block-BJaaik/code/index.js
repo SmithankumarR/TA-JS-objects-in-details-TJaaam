@@ -16,7 +16,7 @@ class Person {
 }
 
 class Player extends Person {
-    constructor(sportsName){
+    constructor(name,age,gender,sportsName){
         super(name,age,gender)
         this.sportsName = sportsName;
     }
@@ -24,19 +24,9 @@ class Player extends Person {
         alert `${this.name} is the best player in ${this.sportsName} `;
     }
 }
-class Cricketer extends Player{
-    constructor(teamName){
-        super(this.sportsName)
-        this.teamName = teamName;
-    }
-    playCricket(){
-        alert ` i love ${this.teamName} in ${this.sportsName}`
-    }
-
-}
 class Teacher extends Person {
-      constructor(instituteName){
-        super(this.name,this.age,this.gender)
+    constructor(name,age,gender,instituteName){
+        super(name,age,gender)
         this.instituteName = instituteName;
     }
     teach(){
@@ -44,17 +34,21 @@ class Teacher extends Person {
     }
 }
 class Artist extends Person {
-    constructor(Kind){
-      super(this.name,this.age,this.gender)
-      this.Kind = Kind;
-  }
-  createArt(){
-      alert `${this.name}  is ${this.kind} and the best Artist in these city.`;
-  }
+    constructor(name,age,gender,Kind){
+        super(name,age,gender)
+        this.Kind = Kind;
+    }
+    createArt(){
+        alert `${this.name}  is ${this.kind} and the best Artist in these city.`;
+    }
 }
+class Cricketer extends Player{
+    constructor(name,age,gender,sportsName,teamName){
+        super(name,age,gender,sportsName)
+        this.teamName = teamName;
+    }
+    playCricket(){
+        alert ` i love ${this.teamName} in ${this.sportsName}`
+    }
 
-
-let virat = new Player("cricket")
-let kalam = new Teacher("ISRO")
-let Hrithick = new Artist("Honest")
-// let team = new Cricketer("INDIA")
+}
